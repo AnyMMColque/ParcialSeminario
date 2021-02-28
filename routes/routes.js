@@ -4,6 +4,9 @@ import UserController from "../controller/userController.js";
 import RolesController from "../controller/rolesContoller.js";
 import JsonWebTokenManagement from "../middleware/JsonWebTokenManagement.js";
 
+//IMPORTAMOS LOS CONTROLADORES
+import ToDoController from "../controller/ToDoController.js";
+
 var router = express.Router();
 var indexControler = new IndexController();
 var userController = new UserController();
@@ -40,5 +43,20 @@ router.delete("/roles/:id", rolesController.deleteRol);
 /* 
 Implemente 
 */
+
+//RUTAS PARA EL PRIMER PARCIAL SOBRE TAREAS....!!!
+var Controller = new ToDoController(); 
+
+
+router.get("/todo", Controller.getTarea);
+router.post("/todo", Controller.createTarea);
+router.put("/todo/:id", Controller.updateTarea);
+router.put("/todo/done/:id", Controller.updateDone);
+router.delete("/todo/:id", Controller.deleteTarea);
+
+
+
+
+
 
 export default router;
